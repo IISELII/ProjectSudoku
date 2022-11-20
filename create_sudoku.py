@@ -3,12 +3,12 @@ import random
 # Create a grille
 
 
-def create_grille(nblignes, nbcolonnes):
-    grille = [[]] * nblignes
-    for i in range(nblignes):
-        grille[i] = [0] * nbcolonnes
-    grille = np.array(grille)
-    return grille
+# def create_grille(nblignes, nbcolonnes):
+#     grille = [[]] * nblignes
+#     for i in range(nblignes):
+#         grille[i] = [0] * nbcolonnes
+#     grille = np.array(grille)
+#     return grille
 
 
 # def random_number(myarray, how_much_number):
