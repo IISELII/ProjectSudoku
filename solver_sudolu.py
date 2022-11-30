@@ -1,7 +1,47 @@
 import numpy as np
-import random
-# Create a grille
+import math
 
+
+
+# def getPossibilities(grid, i,j):
+#   # find all the possibilities
+
+#   if not grid[i][j] == 0:
+#     return [grid[i][j]]
+
+#   exists = []
+
+#   # find what items can be placed here
+#   for k in range(0,9):
+#     # what are the items with the same first index
+#     lineval = grid[i][k]
+#     if lineval not in exists and not lineval == 0:
+#       exists.append(lineval)
+#     # what are the items with the same second index
+#     colval = grid[k][j]
+#     if colval not in exists and not colval == 0:
+#       exists.append(colval)
+
+#   # what are the items in the same square
+
+#   sq_col = math.floor(i/3) * 3
+#   sq_line = math.floor(j/3) * 3
+
+#   for k in range(0,3):
+#    for k2 in range(0,3):
+#       line = sq_line + k
+#       col = sq_col + k2
+#       val = grid[col][line]
+
+#       if val not in exists and not val== 0:
+#         exists.append(val)
+#   available = []
+
+
+#   for i in range(1,10):
+#     if i not in exists:
+#       available.append(i)
+#   return available
 
 def create_grille(nblignes, nbcolonnes):
     grille = [[]] * nblignes
@@ -9,6 +49,7 @@ def create_grille(nblignes, nbcolonnes):
         grille[i] = [0] * nbcolonnes
     grille = np.array(grille)
     return grille
+
 
 sudoku_grille = create_grille(9, 9)
 
@@ -53,40 +94,3 @@ sudoku_grille[8][2] = 2
 sudoku_grille[8][7] = 9
 
 print(sudoku_grille)
-
-
-
-
-
-
-# def random_number(myarray, how_much_number):
-#     for i in range(myarray):
-#         myarray = myarray[i] * np.random.random_sample(how_much_number)
-#     return myarray
-
-
-
-
-# print(random_number(sudoku_grille, 10))
-
-
-# create the conditions
-
-# class SudokuGrille:
-
-
-#     def __init__(self, nblignes, nbcolonnes):
-#         self.nblignes = nblignes
-#         self.nbcolonnes = nbcolonnes
-
-
-#     def create_a_grille(self, nblignes, nbcolonnes):
-#         grille = [[]] * nblignes
-#         for i in range(nblignes):
-#             grille[i] = [0] * nbcolonnes
-#         grille = np.array(grille)
-#         return grille
-
-
-# grille = SudokuGrille(9, 9)
-# print(grille)
