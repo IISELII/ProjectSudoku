@@ -113,18 +113,18 @@ sudoku_1 = [[4, 7, 9, 3, 6, 8, 2, 1, 5],
             [5, 1, 3, 8, 2, 7, 9, 6, 4],
             [7, 2, 6, 9, 4, 1, 3, 5, 8]]
 
-def row_check(grille):
+# def row_check(grille):
 
-    for row_number in range(0, 9):
-        row = grille[row_number]
-        if len(set(row)) == 9 and 0 not in row:
-            print(row)
-            print("the check is ok !")
+#     for row_number in range(0, 9):
+#         row = grille[row_number]
+#         if len(set(row)) == 9 and 0 not in row:
+#             print(row)
+#             print("the check is ok !")
 
-        else :
-            return "colonne is not OK"
+#         else :
+#             return "colonne is not OK"
 
-    return print("OK LIGNE")
+#     return print("OK LIGNE")
 
 def col_check(grille):
 
@@ -139,38 +139,40 @@ def col_check(grille):
 
     return print("OK COLONNE")
 
-def cel_check(grille):
 
-    for cel_row in range(0, 9, 3):
-        for cel_col in range(0, 9, 3):
-            val = grille[cel_row][cel_col: cel_col+3]
-            val.extend(grille[cel_row+1][cel_col: cel_col+3])
-            val.extend(grille[cel_row+2][cel_col: cel_col+3])
+print(col_check(sudoku_1))
+# def cel_check(grille):
 
-
-        if len(set(val)) == 9 and 0 not in val:
-                print(val)
-                print("the cell is ok !")
-
-    return print("OK CELL")
+#     for cel_row in range(0, 9, 3):
+#         for cel_col in range(0, 9, 3):
+#             val = grille[cel_row][cel_col: cel_col+3]
+#             val.extend(grille[cel_row+1][cel_col: cel_col+3])
+#             val.extend(grille[cel_row+2][cel_col: cel_col+3])
 
 
-def sudoku_check(grille):
+#         if len(set(val)) == 9 and 0 not in val:
+#                 print(val)
+#                 print("the cell is ok !")
 
-    for i in range(0, 9):
-
-        if not row_check(grille):
-            return False
-
-        elif not col_check(grille):
-            return False
+#     return print("OK CELL")
 
 
-        elif not cel_check(grille):
-            return False
+# def sudoku_check(grille):
 
-        else :
-            return True
+#     for i in range(0, 9):
+
+#         if not row_check(grille):
+#             return False
+
+#         elif not col_check(grille):
+#             return False
+
+
+#         elif not cel_check(grille):
+#             return False
+
+#         else :
+#             return True
 
 
 
@@ -182,7 +184,7 @@ def sudoku_check(grille):
 
 # print(col_check(grid))
 
-print(cel_check(sudoku_1))
+# print(cel_check(sudoku_1))
 
 
 # print(sudoku_check(sudoku_1))
