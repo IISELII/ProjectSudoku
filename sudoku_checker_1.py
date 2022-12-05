@@ -30,23 +30,20 @@ def row_check(grille):
     row_nb = 0
 
     for row_nb in range(0, 9):
-        if len(set(grille[row_nb])) == 9 and 0 not in grille:
-            print(f"The row {row_nb+1} is OK !")
-            print(grille[row_nb])
+        if len(grille[row_nb]) == 9:
+            for i in range(1, 10):
+                if grille[row_nb].count(i) == 1:
+                    True
+                elif grille[row_nb].count(i) > 1:
+                    print(f"{i} have doublon at row {row_nb}")
+                    return False
 
         else:
-            print(f"The row {row_nb} is not OK")
-            print(grille[row_nb])
+            print(f"The length of the row {row_nb} is not OK")
+            return False
 
-    return print("Voici votre Sudoku:\n ", np.array(grille))
+    return True
 
-# test de la fonction row_check
-
-# print(row_check(sudoku_1))
-# print(row_check(grid1))
-
-
-# définir la fonction qui vérifie la colonne
 
 def col_check(grille):
 
@@ -54,52 +51,50 @@ def col_check(grille):
 
     for col_nb in range(0, 9):
         col = [index[col_nb] for index in grille]
-        if len(set(col)) == 9 and 0 not in grille:
-            print(f"the column {col_nb+1} is OK !")
-            print(col)
+        if len(col) == 9:
+            for i in range(1, 10):
+                if col.count(i) == 1:
+                    True
+                elif col.count(i) > 1:
+                    print(f"{i} have doublon at column {col_nb}")
+                    return False
+
         else:
-            print(f"the column {col_nb+1} is not OK")
-            print(col)
+            print(f"the length of the column {col_nb+1} is not OK")
+            return False
 
-    return print("Voici votre Sudoku:\n ", np.array(grille))
-
-# test de la fonction col_check
-
-# print(col_check(sudoku_1))
-# print(col_check(grid1))
-
-# definir la fonction qui vérifie les blocs 3*3
-
-def bloc_check(grille):
-
-    num_bloc = 0
-    cel_row = 0
-    cel_col = 0
-
-    for cel_row in range(0, 9, 3):
-        for cel_col in range(0, 9, 3):
-            bloc = grille[cel_row][cel_row: cel_row+3]
-            bloc.extend(grille[cel_row+1][cel_col: cel_col+3])
-            bloc.extend(grille[cel_row+2][cel_col: cel_col+3])
-            num_bloc += 1
-
-            if len(set(bloc)) == 9 and 0 not in grille:
-                print(f"Le bloc numéro {num_bloc} est valide !!")
-                print(bloc)
-
-            else :
-                print(f"Le bloc numéro {num_bloc} n'est pas valide !!")
-                print(bloc)
-
-    return print("Voici votre Sudoku:\n ", np.array(grille))
-
-# test de la fonction qui vérifie la cellule
-
-# print(bloc_check(sudoku_1))
-# print(bloc_check(grid1))
+    return True
 
 
-# définir la fonction qui vérifie toutes les lignes, colonnes et cellules 3*3
+def bloc(x,y) :
+    X=x//3
+    Y=y//3
+    return X,Y
+
+def find_block(grid,x,y) :
+    X,Y=bloc(x,y)
+    l1=[]
+    for X in range(0,3) :
+        for Y in range (0,3) :
+            l2=[]
+            for x in range (0,3) :
+                for y in range (0,3) :
+                    l2.append(grid[X * 3+x][Y * 3+y])
+            l1.append(l2)
+    return l1
+
+def group(grid):
+    res = True
+    new_grid =find_block(grid,0,0)
+    for i in range(0,9):
+        blocs = new_grid[i]
+        for j in range(1,10):
+            if blocs.count(j) > 1:
+                return False
+            if blocs.count(j) == 1:
+                res = True
+    return res
+
 
 def sudoku_checker(grille):
 
@@ -109,10 +104,11 @@ def sudoku_checker(grille):
     if col_check(grille):
         print(col_check(grille))
 
-    if bloc_check(grille):
-        print(bloc_check(grille))
+    if group(grille):
+        print(group(grille))
 
     final = print("Le Sudoku a fini d'être vérifié !!")
     return final
 
-sudoku_checker(sudoku_1)
+
+print(sudoku_checker(sudoku_1))
