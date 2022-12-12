@@ -64,17 +64,6 @@ def find_block(grille) :
             l1.append(l2)
     return l1
 
-def find_blockvt(grid) :
-    for X in range(0,3) :
-        for Y in range (0,3) :
-            liste=[]
-            for x in range (0,3) :
-                for y in range (0,3) :
-                    liste.append(grid[X * 3+x][Y * 3+y])
-            print(liste)
-
-    return True
-
 def sudoku_check(grille):
     return row_check(grille) and row_check(find_block(grille)) and col_check(grille)
 
