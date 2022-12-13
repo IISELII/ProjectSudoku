@@ -1,4 +1,4 @@
-
+import Visuel
 grid =[
         [0, 7, 9, 3, 0, 8, 0, 0, 0],
         [0, 0, 0, 1, 9, 0, 0, 8, 0],
@@ -49,5 +49,4 @@ def solver(grid):
                 return
             else :
                 if x==8 and y==8:
-                    print(grid)
-                    return
+                    Visuel.init_grid(grid)
