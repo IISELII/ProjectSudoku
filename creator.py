@@ -74,7 +74,7 @@ def create_full(grid) :
                             return True
                         grid_created[x][y] = 0
                 return False
-    print(grid_created)
+    # print(grid_created)
     return True
 
 def create_from_full(grid,nb_chiffres_retires,nb_chiffres) :
@@ -105,7 +105,3 @@ def creator_sudoku(difficulty) :
     create_full(grid)
     create_from_full(grid,0,nb_chiffres)
     return grid
-
-creator_sudoku('easy')
-creator_sudoku('medium')
-creator_sudoku('hard')
