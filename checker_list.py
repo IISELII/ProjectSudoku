@@ -53,7 +53,8 @@ def row_check(grille):
             # boucle for où i prend les valeurs de 1 à 9 à chaque ligne
             for i in range(1, 10):
 
-                # en utilisant count() on vérifie qu'il n'y a pas de doublon
+                # i va boucler 9 fois avec une valeur s'incrémentant de 1 à 9
+                # en utilisant count(i) on vérifie qu'il n'y a pas de doublon
                 # sur la ligne en question
                 # sinon on retourne False
                 if grille[row_nb].count(i) > 1:
@@ -77,7 +78,8 @@ def col_check(grille):
         # boucle for où i prend les valeurs de 1 à 9
         for i in range(1, 10):
 
-            # en utilisant count() on vérifie qu'il n'y a pas de doublon
+            # i va boucler 9 fois avec une valeur s'incrémentant de 1 à 9
+            # en utilisant count(i) on vérifie qu'il n'y a pas de doublon
             # sur la colonne en question
             # sinon on retourne False
             if col.count(i) > 1:
@@ -102,11 +104,11 @@ def find_block(grille) :
             # on créer la liste l2 vide
             l2=[]
 
-            # x et y définissent pour chaque blocs leurs 9 cellules
+            # les boucles de x et y représentent pour chaque blocs leurs 9 cellules respectives
             for x in range (0,3) :
                 for y in range (0,3) :
 
-                    # on ajoute à l2 une liste contenant les cellules d'un bloc
+                    # on ajoute à l2 la valeur des 9 cellules du bloc
                     l2.append(grille[X * 3+x][Y * 3+y])
 
             # la liste l2 est ajouter à la liste vide l1, qui finira par avoir
@@ -123,8 +125,6 @@ def sudoku_check(grille):
     return row_check(grille) and row_check(find_block(grille)) and col_check(grille)
 
 
-
-print(sudoku_check(grille_non_valide))
 # On importe la librairie time pour voir le temps d'execution de notre checker
 
 import time
