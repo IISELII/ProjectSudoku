@@ -18,14 +18,14 @@ grille_valide_non_remplie = [
         [0, 4, 9, 2, 0, 6, 0, 0, 7]]
 
 
-# print(checker_list.sudoku_check(grille_valide_non_remplie))
+#print(checker_list.sudoku_check(grille_valide_non_remplie))
 
-# my_array = np.array(grille_valide_non_remplie)
-# print(checker_numpy.sudoku_check(my_array))
+#my_array = np.array(grille_valide_non_remplie)
+#print(checker_numpy.sudoku_check(my_array))
 
-# print(solver.solver(grille_valide_non_remplie))
+#print(solver.solver(grille_valide_non_remplie))
 
-# print(creator.creator_sudoku("hard"))
+#print(Visuel.init_grid(creator.creator_sudoku("hard")))
 
 # Visuel.init_grid(grille_valide_non_remplie)
 
