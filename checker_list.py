@@ -123,13 +123,3 @@ def find_block(grille) :
 
 def sudoku_check(grille):
     return row_check(grille) and row_check(find_block(grille)) and col_check(grille)
-
-
-# On importe la librairie time pour voir le temps d'execution de notre checker
-
-import time
-start_time = time.time()
-sudoku_check(sudoku_1)
-end_time = time.time()
-total_time = end_time - start_time
-print("Time: ", total_time)

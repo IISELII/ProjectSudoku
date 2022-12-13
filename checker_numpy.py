@@ -50,13 +50,3 @@ def block_check(grille):
 
 def sudoku_check(grille):
     return row_check(grille) and col_check(grille) and block_check(grille)
-
-
-sudoku_check(my_array)
-
-import time
-start_time = time.time()
-sudoku_check(my_array)
-end_time = time.time()
-total_time = end_time - start_time
-print("Time: ", total_time)
